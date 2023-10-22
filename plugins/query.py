@@ -176,7 +176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             else:
                 await client.send_cached_media(chat_id=query.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if ident == "pmfilep" else False)                       
         except Exception as e:
-            await query.answer(f"⚠️ Eʀʀᴏʀ {e}", show_alert=True)
+            await query.answer(f"⚠️ ᴇʀʀᴏʀ {e}", show_alert=True)
         
     if query.data.startswith("file"):        
         ident, req, file_id = query.data.split("#")
@@ -200,9 +200,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
             else:
                 await client.send_cached_media(chat_id=query.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if ident == "filep" else False)
-                await query.answer('Cʜᴇᴄᴋ PM, I Hᴀᴠᴇ Sᴇɴᴛ Fɪʟᴇs Iɴ Pᴍ', show_alert=True)
+                await query.answer('ᴄʜᴇᴄᴋ ᴩᴍ, ɪ ʜᴀᴠᴇ ꜱᴇɴᴛ ꜰɪʟᴇs ɪɴ ᴩᴍ', show_alert=True)
         except UserIsBlocked:
-            await query.answer('Uɴʙʟᴏᴄᴋ Tʜᴇ Bᴏᴛ Mᴀʜɴ !', show_alert=True)
+            await query.answer('ᴜɴʙʟᴏᴄᴋ ᴛʜᴇ ʙᴏᴛ ᴍᴀʜɴ !', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -210,7 +210,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
      
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            return await query.answer("I Lɪᴋᴇ Yᴏᴜʀ Sᴍᴀʀᴛɴᴇss, Bᴜᴛ Dᴏɴ'ᴛ Bᴇ Oᴠᴇʀsᴍᴀʀᴛ Oᴋᴀʏ 😏", show_alert=True)
+            return await query.answer("ɪ ʟɪᴋᴇ ʏᴏᴜʀ ꜱᴍᴀʀᴛɴᴇss, ʙᴜᴛ ᴅᴏɴ'ᴛ ʙᴇ ᴏᴠᴇʀsᴍᴀʀᴛ ᴏᴋᴀʏ 😏", show_alert=True)
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_: return await query.answer('NO SUCH FILE EXIST....')
@@ -347,7 +347,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton(text="𝖢𝗅𝗈𝗌𝖾", callback_data="close_data")
         ]]
-        await query.message.edit_text("Sᴇʟᴇᴄᴛ Yᴏᴜʀ Rᴇǫᴜɪʀᴇᴅ Mᴏᴅᴇ Fʀᴏᴍ Bᴇʟᴏᴡ!", reply_markup=InlineKeyboardMarkup(buttons))
+        await query.message.edit_text("ꜱᴇʟᴇᴄᴛ ʏᴏᴜʀ ʀᴇǫᴜɪʀᴇᴅ ᴍᴏᴅᴇ ꜰʀᴏᴍ ʙᴇʟᴏᴡ!", reply_markup=InlineKeyboardMarkup(buttons))
                
     elif query.data == "bright":
         await bright(client, query.message)
@@ -422,17 +422,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rmbgsticker":
         await removebg_sticker(client, query.message)
     elif query.data == "pages":
-        await query.answer("🤨 Cᴜʀɪᴏsɪᴛʏ Is A Lɪᴛᴛʟᴇ Mᴏʀᴇ, Isɴ'ᴛ Iᴛ? 😁", show_alert=True)
+        await query.answer("🤨 ᴄᴜʀɪᴏsɪᴛʏ ɪs ᴀ ʟɪᴛᴛʟᴇ ᴍᴏʀᴇ, ɪsɴ'ᴛ ɪᴛ? 😁", show_alert=True)
     elif query.data == "howdl":
         try: await query.answer(script.HOW_TO_DOWNLOAD.format(query.from_user.first_name), show_alert=True)
         except: await query.message.edit(script.HOW_TO_DOWNLOAD.format(query.from_user.first_name))
 
     elif query.data == "start":                        
-        buttons = [[
-            InlineKeyboardButton("⇋ ᴀᴅᴅ ᴍᴇ ᴛᴏ yᴏᴜʀ ɢʀᴏᴜᴘ ⇌", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
-            ],[      
-            InlineKeyboardButton("💠 ʜᴇʟᴩ 💠", callback_data="help"),
-            InlineKeyboardButton("🥀 ᴀʙᴏᴜᴛ 🥀", callback_data="about")
+        buttons = [[           
+            InlineKeyboardButton('🎭 ᴜᴩᴅᴀᴛᴇꜱ 🎭', url=f'https://t.me/{SUPPORT_CHAT}')
+            ],[
+            InlineKeyboardButton('☘️ ʜᴇʟᴩ ☘️', url=f"https://t.me/{temp.U_NAME}?start=help")
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), START_MESSAGE.format(user=query.from_user.mention, bot=client.mention), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
        
@@ -475,7 +474,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('« ʙᴀᴄᴋ', 'help')           
         ]]
         if query.from_user.id not in ADMINS:
-            return await query.answer("Sᴏʀʀʏ Tʜɪs Mᴇɴᴜ Oɴʟʏ Fᴏʀ Mʏ Aᴅᴍɪɴs ⚒️", show_alert=True)
+            return await query.answer("ꜱᴏʀʀʏ ᴛʜɪs ᴍᴇɴᴜ ᴏɴʟʏ ꜰᴏʀ ᴍʏ ᴀᴅᴍɪɴs", show_alert=True)
         await query.message.edit("Pʀᴏᴄᴇꜱꜱɪɴɢ Wᴀɪᴛ Fᴏʀ 15 ꜱᴇᴄ...")
         total, used, free = shutil.disk_usage(".")
         stats = script.SERVER_STATS.format(get_time(time.time() - client.uptime), psutil.cpu_percent(), psutil.virtual_memory().percent, humanbytes(total), humanbytes(used), psutil.disk_usage('/').percent, humanbytes(free))            
@@ -512,7 +511,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('« ʙᴀᴄᴋ', 'openfilter')           
         ]]
         if query.from_user.id not in ADMINS:
-            return await query.answer("Sᴏʀʀʏ Tʜɪs Mᴇɴᴜ Oɴʟʏ Fᴏʀ Mʏ Aᴅᴍɪɴs ⚒️", show_alert=True)
+            return await query.answer("ꜱᴏʀʀʏ ᴛʜɪs ᴍᴇɴᴜ ᴏɴʟʏ ꜰᴏʀ ᴍʏ ᴀᴅᴍɪɴs", show_alert=True)
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.GLOBALFILTER_TXT, enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data.startswith("button"):
@@ -569,7 +568,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, set_type, status, grp_id = query.data.split("#")
         grpid = await active_connection(str(query.from_user.id))
         if str(grp_id) != str(grpid):
-            return await query.message.edit("Yᴏᴜʀ Aᴄᴛɪᴠᴇ Cᴏɴɴᴇᴄᴛɪᴏɴ Hᴀs Bᴇᴇɴ Cʜᴀɴɢᴇᴅ. Gᴏ Tᴏ /settings")
+            return await query.message.edit("ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴄᴏɴɴᴇᴄᴛɪᴏɴ ʜᴀs ʙᴇᴇɴ ᴄʜᴀɴɢᴇᴅ.ɢᴏ ᴛᴏ /settings")
         if status == "True": await save_group_settings(grpid, set_type, False)
         else: await save_group_settings(grpid, set_type, True)
         settings = await get_settings(grpid)
