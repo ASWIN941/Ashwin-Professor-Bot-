@@ -38,7 +38,9 @@ async def start(client, message):
             InlineKeyboardButton("☘️ ʜᴇʟᴩ ☘️", callback_data="help"),
             InlineKeyboardButton("👉 ᴀʙᴏᴜᴛ 👈", callback_data="about")
         ]]
-        m = await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
+        m = await message.reply_sticker("CAACAgIAAxkBAAECQk1lNNVUlSgPXEfzSDBC_RfdC-2k-wAC4BUAAhyiGEjF4kD_M1t33B4E")
+        await asyncio.sleep(2)
+        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
         return await m.delete()
         
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -69,7 +71,9 @@ async def start(client, message):
             InlineKeyboardButton("☘️ ʜᴇʟᴩ ☘️", callback_data="help"),
             InlineKeyboardButton("👉 ᴀʙᴏᴜᴛ 👈", callback_data="about")
         ]]
-        m = await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
+        m = await message.reply_sticker("CAACAgIAAxkBAAECQk1lNNVUlSgPXEfzSDBC_RfdC-2k-wAC4BUAAhyiGEjF4kD_M1t33B4E")
+        await asyncio.sleep(2)
+        await message.reply_photo(photo=random.choice(PICS), caption=START_MESSAGE.format(user=message.from_user.mention, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), parse_mode=enums.ParseMode.HTML)
         return await m.delete()
         
     data = message.command[1]
