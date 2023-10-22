@@ -11,7 +11,7 @@ from info import ADMINS
 async def broadcast(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
-    sts = await message.reply_text('Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ Yᴏᴜʀ Mᴇssᴀɢᴇs...')
+    sts = await message.reply_text('ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ ʏᴏᴜʀ ᴍᴇssᴀɢᴇs...')
     start_time = time.time()
     total_users = await db.total_users_count()
     done = 0
@@ -32,10 +32,10 @@ async def broadcast(bot, message):
                 failed += 1
         done += 1
         if not done % 20:
-            await sts.edit(f"Bʀᴏᴀᴅᴄᴀsᴛ Iɴ Pʀᴏɢʀᴇss:\n\nTᴏᴛᴀʟ Uꜱᴇʀꜱ {total_users}\nCᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nSᴜᴄᴄᴇꜱꜱ: {success}\nBʟᴏᴄᴋᴇᴅ: {blocked}\nDᴇʟᴇᴛᴇᴅ: {deleted}")    
+            await sts.edit(f"ʙʀᴏᴀᴅᴄᴀsᴛ ɪɴ ᴩʀᴏɢʀᴇss:\n\nᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ {total_users}\nᴄᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nꜱᴜᴄᴄᴇꜱꜱ: {success}\nʙʟᴏᴄᴋᴇᴅ: {blocked}\nᴅᴇʟᴇᴛᴇᴅ: {deleted}")    
     time_taken = datetime.timedelta(seconds=int(time.time()-start_time))
     await sts.delete()
-    await bot.send_message(message.chat.id, f"Bʀᴏᴀᴅᴄᴀsᴛ Coᴍᴩʟᴇᴛᴇᴅ:\nTɪᴍᴇ Tᴀᴋᴇᴅ{time_taken} Sᴇᴄ\n\nTᴏᴛᴀʟ Uꜱᴇʀꜱ: {total_users}\nCᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nSucᴄᴇꜱꜱ: {success}\nBʟᴏᴄᴋᴇᴅ: {blocked}\nDᴇʟᴇᴛᴇᴅ: {deleted}")
+    await bot.send_message(message.chat.id, f"ʙʀᴏᴀᴅᴄᴀsᴛ ᴄoᴍᴩʟᴇᴛᴇᴅ:\ᴛɪᴍᴇ ᴛᴀᴋᴇᴅ{time_taken} ꜱᴇᴄ\n\nᴛᴏᴛᴀʟ ᴜꜱᴇʀꜱ: {total_users}\nᴄᴏᴍᴩʟᴇᴛᴇᴅ: {done} / {total_users}\nꜱucᴄᴇꜱꜱ: {success}\nʙʟᴏᴄᴋᴇᴅ: {blocked}\nᴅᴇʟᴇᴛᴇᴅ: {deleted}")
 
 
 @Client.on_message(filters.command("clear_junk") & filters.user(ADMINS))
