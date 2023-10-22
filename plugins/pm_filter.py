@@ -30,7 +30,7 @@ async def pm_next_page(bot, query):
     try: offset = int(offset)
     except: offset = 0
     search = temp.PM_BUTTONS.get(str(key))
-    if not search: return await query.answer("Yᴏᴜ Aʀᴇ Usɪɴɢ Oɴᴇ Oғ Mʏ Oʟᴅ Mᴇssᴀɢᴇs, Pʟᴇᴀsᴇ Sᴇɴᴅ Tʜᴇ Rᴇǫᴜᴇsᴛ Aɢᴀɪɴ", show_alert=True)
+    if not search: return await query.answer("ʏᴏᴜ ᴀʀᴇ ᴜsɪɴɢ ᴏɴᴇ ᴏғ ᴍʏ ᴏʟᴅ ᴍᴇssᴀɢᴇs, ᴩʟᴇᴀsᴇ ꜱᴇɴᴅ ᴛʜᴇ ʀᴇǫᴜᴇsᴛ ᴀɢᴀɪɴ", show_alert=True)
 
     files, n_offset, total = await get_search_results(search.lower(), offset=offset, filter=True)
     try: n_offset = int(n_offset)
@@ -83,15 +83,15 @@ async def pm_spoll_tester(bot, query):
         return await query.message.delete()
     movies = temp.PM_SPELL.get(str(query.message.reply_to_message.id))
     if not movies:
-        return await query.answer("Yᴏᴜ Aʀᴇ Usɪɴɢ Oɴᴇ Oғ Mʏ Oʟᴅ Mᴇssᴀɢᴇs, Pʟᴇᴀsᴇ Sᴇɴᴅ Tʜᴇ Rᴇǫᴜᴇsᴛ Aɢᴀɪɴ", show_alert=True)
+        return await query.answer("ʏᴏᴜ ᴀʀᴇ ᴜsɪɴɢ ᴏɴᴇ ᴏғ ᴍʏ ᴏʟᴅ ᴍᴇssᴀɢᴇs, ᴩʟᴇᴀsᴇ ꜱᴇɴᴅ ᴛʜᴇ ʀᴇǫᴜᴇsᴛ ᴀɢᴀɪɴ", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('Cʜᴇᴄᴋɪɴɢ Fᴏʀ Mᴏᴠɪᴇ Iɴ Dᴀᴛᴀʙᴀsᴇ...')
+    await query.answer('ᴄʜᴇᴄᴋɪɴɢ ꜰᴏʀ ᴍᴏᴠɪᴇ ɪɴ ᴅᴀᴛᴀʙᴀsᴇ...')
     files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
     if files:
         k = (movie, files, offset, total_results)
         await pm_AutoFilter(bot, query, k)
     else:
-        k = await query.message.edit('Tʜɪs Mᴏᴠɪᴇ Nᴏᴛ Fᴏᴜɴᴅ Iɴ Dᴀᴛᴀʙᴀsᴇ')
+        k = await query.message.edit('ᴛʜɪs ᴍᴏᴠɪᴇ ɴᴏᴛ ꜰᴏᴜɴᴅ ɪɴ ᴅᴀᴛᴀʙᴀsᴇ')
         await asyncio.sleep(10)
         await k.delete()
 
@@ -177,7 +177,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
             **locals()
         )
     else:
-        cap = f"Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Qᴜᴇʀʏ {search}"
+        cap = f"ʜᴇʀᴇ ɪs ᴡʜᴀᴛ ɪ ꜰᴏᴜɴᴅ ꜰᴏʀ ʏᴏᴜʀ qᴜᴇʀʏ {search}"
     if imdb and imdb.get('poster'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, quote=True, reply_markup=InlineKeyboardMarkup(btn))
