@@ -437,19 +437,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
        
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('ᴀᴅᴍɪɴ ᴩᴀɴᴇʟ', 'admin')            
+            InlineKeyboardButton('🧑‍🔧 ᴀᴅᴍɪɴ ᴩᴀɴᴇʟ', 'admin')            
             ],[
-            InlineKeyboardButton('ꜰɪʟᴛᴇʀꜱ', 'openfilter'),
-            InlineKeyboardButton('ᴄᴏɴɴᴇᴄᴛ', 'coct')
+            InlineKeyboardButton('🎯 ꜰɪʟᴛᴇʀꜱ', 'openfilter'),
+            InlineKeyboardButton('🔗 ᴄᴏɴɴᴇᴄᴛ', 'coct')
             ],[                       
-            InlineKeyboardButton('ꜰɪʟᴇ ꜱᴛᴏʀᴇ', 'newdata'),
-            InlineKeyboardButton('ᴇxᴛʀᴀ ᴍᴏᴅᴇ', 'extmod')
+            InlineKeyboardButton('📁 ꜰɪʟᴇ ꜱᴛᴏʀᴇ', 'newdata'),
+            InlineKeyboardButton('🎛️ ᴇxᴛʀᴀ ᴍᴏᴅᴇ', 'extmod')
             ],[           
-            InlineKeyboardButton('ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇʀ', 'gpmanager'), 
-            InlineKeyboardButton('ꜱᴛᴀᴛᴜꜱ', 'stats')
+            InlineKeyboardButton('📚ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇʀ', 'gpmanager'), 
+            InlineKeyboardButton('🔮 ꜱᴛᴀᴛᴜꜱ', 'stats')
             ],[
-            InlineKeyboardButton('ᴄʟᴏꜱᴇ', 'close_data'),
-            InlineKeyboardButton('« ʙᴀᴄᴋ', 'start')           
+            InlineKeyboardButton('🏠 ʜᴏᴍᴇ', 'start')           
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.HELP_TXT.format(query.from_user.mention), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))     
         
@@ -458,7 +457,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴅɪꜱᴄʟᴀɪᴍᴇʀ 📜', 'source')
             ],[
             InlineKeyboardButton('ᴄʟᴏꜱᴇ', 'close_data'),
-            InlineKeyboardButton('« ʙᴀᴄᴋ', 'start')          
+            InlineKeyboardButton('🏠 ʜᴏᴍᴇ', 'start')          
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.ABOUT_TXT.format(temp.B_NAME), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
